@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <table>
+    <thead>
+    <th>ID</th>
+    <th>Model</th>
+    <th>Brand</th>
+    <th>Engine Volume</th>
+    <th>Price</th>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+      <td th:text="${car.id}"></td>
+      <td th:text="${car.model}"></td>
+      <td th:text="${car.brand}"></td>
+      <td th:text="${car.engineVolume}"></td>
+      <td th:text="${car.price}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <hr>
+  <form action="/addcar" method="post">
+    <label for="model">Model: </label>
+    <input type="text" name="model" id="model">
+
+    <label for="brand">Brand: </label>
+    <input type="text" name="brand" id="brand">
+
+    <label for="engineVolume">Engine volume: </label>
+    <input type="number" name="engineVolume" id="engineVolume" step="0.01">
+
+    <label for="price">Price: </label>
+    <input type="number" name="price" id="price">
+    <button>ADD ITEM</button>
+  </form>
+</body>
+</html>
